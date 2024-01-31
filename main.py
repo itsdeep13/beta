@@ -1161,7 +1161,7 @@ async def apnissn(bot: Client, m: Message):
         -1001927599085, f"**Apni Auth Code**\n{editable.chat.id}\n\n`{token}`"
     )
     headers1 = {
-        "Host": "spec.apnikaksha.net",
+        "Host": "https://elearn.crwilladmin.com",
         "token": f"{token}",
         "origintype": "web",
         "user-agent": "Android",
@@ -1170,7 +1170,7 @@ async def apnissn(bot: Client, m: Message):
         "Accept": "application/json",
     }
     response1 = requests.get(
-        "https://spec.apnikaksha.net/api/v2/my-batch", headers=headers1
+        " https://elearn.crwilladmin.com/api/v5/my-batch", headers=headers1
     ).json()["data"]["batchData"]
     await m.reply_text("Batch Name : Batch ID")
     aa = ""
@@ -1185,7 +1185,7 @@ async def apnissn(bot: Client, m: Message):
     batch_idid = input2.text
 
     response2 = requests.get(
-        f"https://spec.apnikaksha.net/api/v2/batch-subject/{batch_idid}",
+        f" https://elearn.crwilladmin.com/api/v5/my-batch/{batch_idid}",
         headers=headers1,
     ).json()["data"]["batch_subject"]
     await m.reply_text("Subject Name : Subject ID")
@@ -1207,7 +1207,7 @@ async def apnissn(bot: Client, m: Message):
     check_is = input4.text
 
     response3 = requests.get(
-        f"https://spec.apnikaksha.net/api/v2/batch-topic/{lesson_idid}?type={check_is}",
+        f" https://elearn.crwilladmin.com/api/v5 /batch-topic/{lesson_idid}?type={check_is}",
         headers=headers1,
     ).json()["data"]["batch_topic"]
     to_write = ""
@@ -1215,16 +1215,16 @@ async def apnissn(bot: Client, m: Message):
         topic_id = data["id"]
         if check_is == "class":
             response4 = requests.get(
-                f"https://spec.apnikaksha.net/api/v2/batch-detail/{batch_idid}?subjectId={lesson_idid}&topicId={topic_id}",
+                f" https://elearn.crwilladmin.com/api/v5/batch-detail/{batch_idid}?subjectId={lesson_idid}&topicId={topic_id}",
                 headers=headers1,
             ).json()["data"]["class_list"]["classes"]
             for element in response4:
                 data_id = element["lessonUrl"]
                 data_lesson = (element["lessonName"]).replace(":", " ")
-                to_write += f"{data_lesson}:https://apni-kaksha.vercel.app/{data_id}\n"
+                to_write += f"{data_lesson}: https://web.careerwill.com/{data_id}\n"
         elif check_is == "notes":
             response4 = requests.get(
-                f"https://spec.apnikaksha.net/api/v2/batch-notes/{batch_idid}?subjectId={lesson_idid}&topicId={topic_id}",
+                f" https://elearn.crwilladmin.com/api/v5/my-batch /{batch_idid}?subjectId={lesson_idid}&topicId={topic_id}",
                 headers=headers1,
             ).json()["data"]["notesDetails"]
             for element in response4:

@@ -16,7 +16,7 @@
     "env": {
         "API_ID":{
             "description": "Get your telegram API ID from https://my.telegram.org",
-            "value":"3748059"
+            "value":"3498045"
         }
     }
 }
